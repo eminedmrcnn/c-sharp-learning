@@ -5,40 +5,38 @@ namespace Döngüler14_10_19
 	class Program
 	{
 
-		static int topla(int sayi1, params int[] sayilar)
-		{
-			int toplam = 0;
-			for (int i = 0; i < sayilar.Length; i++)
-			{
-				toplam += sayilar[i];  //toplam=toplam+sayilar[i];
-			}
-			return toplam;
-
-		}
+		
 
 
 
 
 		static void Main(string[] args)
 		{
+			int sayi;
 
-			int i, sayi, deger;
-			double toplam = 0;
-			Console.WriteLine("kaç sayi gireceksiniz");
-			deger = Convert.ToInt32(Console.ReadLine());
-			for (i = 1; i <= deger; i++)
+			Console.WriteLine("bi sayi giriniz:");
+			sayi = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("..........");
+
+			for(int i=2;i<=sayi;i++)
 			{
-				Console.WriteLine(i + ".sayiyi giriniz...");
-				sayi = Convert.ToInt32(Console.ReadLine());
-				toplam += sayi;
+				int kalan;
+				kalan = sayi % i;
+				if (kalan == 0)
+				{
+					Console.WriteLine("bu sayi asal deildir.");
+					break;
+				}
+
+				else if (i == sayi - 1)
+				{
+					Console.WriteLine("sayi asaldir.");
+					break;
+				}
+
 
 			}
-
-
-			Console.WriteLine(toplam);
-
-
-
+			
 			Console.ReadLine();
 
 
@@ -48,14 +46,19 @@ namespace Döngüler14_10_19
 
 
 
-			//Console.WriteLine("bi metin yaziniz:");
-			//string bilgi = Console.ReadLine();
-			//yazdir(bilgi);
-			//Console.Read();
+
+
+
+
+
 
 
 
 		}
+
+		
+
+
 
 	}
 }
