@@ -5,31 +5,14 @@ namespace Döngüler14_10_19
 	class Program
 	{static void Main(string[] args)
 		{
-			PersonManager manager = new PersonManager();
-			Customer customer = new Customer
-			{
-				Id = 1,
-				FirstName = "Emine",
-				LastName = "Demircan",
-				Adress = "İstanbul"
-			};
 
-			Student student = new Student
-			{
-				Id = 1,
-				FirstName = "Mehmet",
-				LastName="Yeşilmen",
-				Departman="Computer Sciences"
-
-
-
-			};
-			manager.Add(customer);
-			manager.Add(student);
+			CustomerManager customerManager = new CustomerManager();
+			customerManager.Add(new SqlServerCustomerDal());
+			customerManager.Delete(new OracleCustomerDal());
 			Console.ReadLine();
 		}
 
-		interface IPerson
+		interface IPerson       //interface hiçbir zaman new lenemez.
 		{
 			int Id { get; set; }
 			string FirstName { get;  set; }
