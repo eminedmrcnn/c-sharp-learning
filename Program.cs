@@ -3,12 +3,20 @@
 namespace Döngüler14_10_19
 {
 	class Program
-	{static void Main(string[] args)
+	{ static void Main(string[] args)
 		{
+			ICustomerDal[] customerDals = new ICustomerDal[2]
+			{
+				new SqlServerCustomerDal(),
+				new OracleCustomerDal()
 
-			CustomerManager customerManager = new CustomerManager();
-			customerManager.Add(new SqlServerCustomerDal());
-			customerManager.Delete(new OracleCustomerDal());
+		    };
+			foreach(var customerDal in customerDals)
+			{
+				customerDal.Add();
+			}
+
+
 			Console.ReadLine();
 		}
 
