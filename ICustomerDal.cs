@@ -45,6 +45,24 @@ namespace Döngüler14_10_19
 		}
 	}
 
+	class MySqlCustomerDal : ICustomerDal
+	{
+		public void Add()
+		{
+			Console.WriteLine("MySql Added");
+		}
+
+		public void Delete()
+		{
+			Console.WriteLine("MySql Delete");
+		}
+
+		public void Update()
+		{
+			Console.WriteLine("MySql Update");
+		}
+	}
+
 	class CustomerManager
 	{
 		public void Add(ICustomerDal customerDal)
