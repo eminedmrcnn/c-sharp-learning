@@ -6,94 +6,44 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
+			Person[] persons = new Person[3]
+			{
+				new Person{LastName="emine" },
+				new Customer{FirstName="sanane" },
+				new Student{Departman="okul"},
+
 			
-
-			IWorker[] workers = new IWorker[3]
-			{
-				new Manager(),
-				new Worker(),
-				new Robot()
 			};
 
-			foreach (var worker in workers)
+			foreach (var person in persons)
 			{
-				worker.Work();
-			}
+				Console.WriteLine(person.FirstName);
+				Console.WriteLine(person.LastName);
 
-			IEat[] eats = new IEat[]
-			{
-				new Manager(),
-				new  Worker()
-
-			};
-
-			foreach (var eat in eats)
-			{
-				eat.Eat();  
 			}
 
 			Console.ReadLine();
+
+			
 		}
+	}
 
+	class Person
+	{
+		public int Id { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
-		interface IWorker
-		{
-			void Work();
-		}
+	}
 
-		//SOLID, INTERFACE SEGREGATION....
-		interface IEat
-		{
-			void Eat();
-		}
-		interface ISallary
-		{
-			void GetSallary();
-		}
+	class Customer:Person
+	{
+		public string City { get; set; }
+	}
 
-		class Manager : IWorker, IEat, ISallary
-		{
-			public void Eat()
-			{
-				Console.WriteLine("Manager Eat");
-			}
-
-			public void GetSallary()
-			{
-				Console.WriteLine("Manager Salalry");
-			}
-
-			public void Work()
-			{
-				Console.WriteLine("manager Work");
-			}
-		}
-
-		class Worker : IWorker, IEat, ISallary
-		{
-			public void Eat()
-			{
-				Console.WriteLine("worker Eat");
-			}
-
-			public void GetSallary()
-			{
-				Console.WriteLine("worker Sallary");
-			}
-
-			void IWorker.Work()
-			{
-				Console.WriteLine("worker work");
-			}
-		}
-
-		class Robot : IWorker
-		{
-			public void Work()
-			{
-				Console.WriteLine("Robot Work");
-			}
-		}
+	class Student : Person
+	{
+		public string Departman { get; set; }
 	}
 		
 			
