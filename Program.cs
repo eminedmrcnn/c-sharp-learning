@@ -6,66 +6,51 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
-			Person[] persons = new Person[3]
-			{
-				new Person{LastName="emine" },
-				new Customer{FirstName="sanane" },
-				new Student{Departman="okul"},
+			SqlServer sqlServer = new SqlServer();
+			sqlServer.Add();
+			MySqlServer mySqlServer = new MySqlServer();
+			mySqlServer.Add();
 
-			
-			};
 
-			foreach (var person in persons)
-			{
-				Console.WriteLine(person.FirstName);
-				Console.WriteLine(person.LastName);
 
-			}
 
 			Console.ReadLine();
 
 			
 		}
+
 	}
 
-	class Person
+	class Database
 	{
-		public int Id { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public virtual void Add()
+		{
+			Console.WriteLine("Added by default");
+		}
+		public virtual void Delete()
+		{
+			Console.WriteLine("Delete by default.");
+
+		}
 
 	}
 
-	class Customer:Person
+	class SqlServer:Database
 	{
-		public string City { get; set; }
+		public override void Add()
+		{
+			Console.WriteLine("Added by Sql code..");
+			base.Add();  //böyle yazarsak database inde kodunu çalıştırır.
+		}
 	}
 
-	class Student : Person
+	class MySqlServer:Database
 	{
-		public string Departman { get; set; }
+
 	}
-		
-			
 
 
-
-
-			
-
-
-
-
-
-
-
-		
-
-
-
-
-
-
+	
 
 
 
