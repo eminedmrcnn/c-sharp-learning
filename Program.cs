@@ -7,13 +7,12 @@ namespace Döngüler14_10_19
 		static void Main(string[] args)
 		{
 
-			Database database = new Oracle();
-			database.Delete();
-			database.Add();
+			CustomerManager customerManager = new CustomerManager();
+			customerManager.Logger = new SmsLogger();
+			customerManager.Add();
 
-			Database database1 = new SqlServer();
-			database1.Delete();
-			database1.Add();
+
+			
 
 
 			Console.ReadLine();
@@ -23,34 +22,47 @@ namespace Döngüler14_10_19
 
 	}
 
-	abstract class Database
+	class CustomerManager
 	{
+		public ILogger Logger { get; set; }
 		public void Add()
 		{
-			Console.WriteLine("Added by default");
+			Logger.Log();
+			Console.WriteLine("Added!");
+			
 		}
 
-		public abstract void Delete();
-		
 
 	}
-
-	class SqlServer : Database
+	class DatabaseLogger:ILogger
 	{
-		public override void Delete()
+		public void Log()
 		{
-			Console.WriteLine("deleted by SqlServer");
+			Console.WriteLine("Logger to database!");
 		}
+	
 	}
 
-	class Oracle:Database
+	interface ILogger
 	{
-		public override void Delete()
+		void Log();
+	}
+
+	class FileLogger:ILogger
+	{
+		public void Log()
 		{
-			Console.WriteLine("Deleted by Oracle");
+			Console.WriteLine("Logger to File!");
 		}
 	}
 
+	class SmsLogger : ILogger
+	{
+		public void Log()
+		{
+			Console.WriteLine("Logger to Sms!");
+		}
+	}
 
 
 
