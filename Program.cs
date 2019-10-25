@@ -6,12 +6,14 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
-			SqlServer sqlServer = new SqlServer();
-			sqlServer.Add();
-			MySqlServer mySqlServer = new MySqlServer();
-			mySqlServer.Add();
 
+			Database database = new Oracle();
+			database.Delete();
+			database.Add();
 
+			Database database1 = new SqlServer();
+			database1.Delete();
+			database1.Add();
 
 
 			Console.ReadLine();
@@ -21,36 +23,35 @@ namespace Döngüler14_10_19
 
 	}
 
-	class Database
+	abstract class Database
 	{
-		public virtual void Add()
+		public void Add()
 		{
 			Console.WriteLine("Added by default");
 		}
-		public virtual void Delete()
-		{
-			Console.WriteLine("Delete by default.");
 
-		}
+		public abstract void Delete();
+		
 
 	}
 
-	class SqlServer:Database
+	class SqlServer : Database
 	{
-		public override void Add()
+		public override void Delete()
 		{
-			Console.WriteLine("Added by Sql code..");
-			base.Add();  //böyle yazarsak database inde kodunu çalıştırır.
+			Console.WriteLine("deleted by SqlServer");
 		}
 	}
 
-	class MySqlServer:Database
+	class Oracle:Database
 	{
-
+		public override void Delete()
+		{
+			Console.WriteLine("Deleted by Oracle");
+		}
 	}
 
 
-	
 
 
 
@@ -70,5 +71,6 @@ namespace Döngüler14_10_19
 
 
 
-	
+
+
 }

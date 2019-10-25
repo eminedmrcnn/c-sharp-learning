@@ -4,7 +4,6 @@ C:\Users\emine\source\repos\Döngüler14,10,19\bin\Debug\netcoreapp2.1\Döngüle
 C:\Users\emine\source\repos\Döngüler14,10,19\bin\Debug\netcoreapp2.1\Döngüler14,10,19.dll
 C:\Users\emine\source\repos\Döngüler14,10,19\bin\Debug\netcoreapp2.1\Döngüler14,10,19.pdb
 C:\Users\emine\source\repos\Döngüler14,10,19\obj\Debug\netcoreapp2.1\Döngüler14,10,19.csprojAssemblyReference.cache
-C:\Users\emine\source\repos\Döngüler14,10,19\obj\Debug\netcoreapp2.1\Döngüler14,10,19.csproj.CoreCompileInputs.cache
 C:\Users\emine\source\repos\Döngüler14,10,19\obj\Debug\netcoreapp2.1\Döngüler14,10,19.AssemblyInfoInputs.cache
 C:\Users\emine\source\repos\Döngüler14,10,19\obj\Debug\netcoreapp2.1\Döngüler14,10,19.AssemblyInfo.cs
 C:\Users\emine\source\repos\Döngüler14,10,19\obj\Debug\netcoreapp2.1\Döngüler14,10,19.dll
