@@ -15,11 +15,18 @@ namespace Döngüler14_10_19
 				Name = "Laptop"
 			};
 			Product product2 = new Product(2, "Computer");
+
+			EmployeeManager employee = new EmployeeManager(new DatabaseLogger());
 			
+			employee.Add();
+
+
+
+
 
 
 			Console.ReadLine();
-			
+
 		}
 	}
 
@@ -35,8 +42,8 @@ namespace Döngüler14_10_19
 		{
 
 		}
-		
-		public  void List()
+
+		public void List()
 		{
 			Console.WriteLine("Listed! {0} items", _count);
 		}
@@ -55,8 +62,8 @@ namespace Döngüler14_10_19
 		}
 		int _id;
 		string _name;
-		public Product(int id,string name)
-		
+		public Product(int id, string name)
+
 		{
 			_id = id;
 			_name = name;
@@ -64,12 +71,44 @@ namespace Döngüler14_10_19
 		public int Id { get; set; }
 		public string Name { get; set; }
 
-		
 
+
+	}
+
+	interface ILogger
+	{
+		void Log();
+	}
+
+	class DatabaseLogger:ILogger
+	{
+		public void Log()
+		{
+			Console.WriteLine("Logged to Database");
+		}
 		
 	}
 
-	
+	class FileLogger:ILogger
+	{
+		public void Log()
+		{
+			Console.WriteLine("Logged to File");
+		}
+	}
 
-	
+	class EmployeeManager
+	{
+
+		private ILogger _logger;
+		public EmployeeManager(ILogger logger)
+		{
+			_logger = logger;
+		}
+		public void Add()
+		{
+			_logger.Log();
+			Console.WriteLine("Added");
+		}
+	}
 }
