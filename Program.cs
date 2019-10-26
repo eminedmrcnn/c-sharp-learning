@@ -2,87 +2,34 @@
 
 namespace Döngüler14_10_19
 {
+
 	class Program
 	{
 		static void Main(string[] args)
 		{
-
-			CustomerManager customerManager = new CustomerManager();
-			customerManager.Logger = new SmsLogger();
-			customerManager.Add();
-
-
-			
-
-
-			Console.ReadLine();
-
-			
+			CustomerManager customerManager = new CustomerManager(20);
+			customerManager.List();
 		}
-
 	}
 
 	class CustomerManager
 	{
-		public ILogger Logger { get; set; }
+		private int _count;
+		public CustomerManager(int count)
+		{
+			_count = count;
+		}
+		public  void List()
+		{
+			Console.WriteLine("Listed! {0},items", _count);
+		}
 		public void Add()
 		{
-			Logger.Log();
 			Console.WriteLine("Added!");
-			
 		}
-
-
 	}
-	class DatabaseLogger:ILogger
-	{
-		public void Log()
-		{
-			Console.WriteLine("Logger to database!");
-		}
+
 	
-	}
 
-	interface ILogger
-	{
-		void Log();
-	}
-
-	class FileLogger:ILogger
-	{
-		public void Log()
-		{
-			Console.WriteLine("Logger to File!");
-		}
-	}
-
-	class SmsLogger : ILogger
-	{
-		public void Log()
-		{
-			Console.WriteLine("Logger to Sms!");
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 }
