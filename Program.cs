@@ -17,13 +17,18 @@ namespace Döngüler14_10_19
 			Product product2 = new Product(2, "Computer");
 
 			EmployeeManager employee = new EmployeeManager(new DatabaseLogger());
+
+
 			PersonManager personManager = new PersonManager("Product");
 			personManager.Add();
 
-
-			
-			
 			employee.Add();
+
+			Teacher.Number = 10;
+			Utilities.Validate();
+			Manager.DoSomething();
+			Manager manager = new Manager();
+			manager.DoSomething2();
 
 
 
@@ -141,6 +146,34 @@ namespace Döngüler14_10_19
 		{
 			Console.WriteLine("Added!");
 			Message();
+		}
+	}
+	
+	static class Teacher
+	{
+		public static int Number  { get; set; }
+		
+
+	}
+
+	static class Utilities
+	{
+		public static void Validate()
+		{
+			Console.WriteLine("Validation is done.." /*doğrulama yapıldı..*/);
+		}
+	}
+
+	class Manager
+	{
+		public static void DoSomething() //bir şey yap
+		{
+			Console.WriteLine("done");
+		}
+
+		public void DoSomething2() //bir şey yap
+		{
+			Console.WriteLine("done 2");
 		}
 	}
 }
