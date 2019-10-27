@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Döngüler14_10_19
 {
@@ -7,21 +8,20 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
-			int number1 = 10;
-			int number2 = 20;
+			ArrayList cities = new ArrayList();
+			cities.Add("Ankara");
+			cities.Add("Adana");
 
-			number2 = number1;
-			number1 = 30;
+			foreach (var city in cities)
+			{
+				Console.WriteLine(city);
+			}
 
-			Console.WriteLine(number2);
+			Console.WriteLine("İstanbul");
 
-			string[] cities1 = new string[] { "Ankara", "Adana", "Istanbul" };
-			string[] cities2 = new string[] { "Bolu", "Bursa", "İzmit" };
+			Console.WriteLine(cities[2]);
 
-			cities2 = cities1;
-			cities1[0] = "maras";
 
-			Console.WriteLine(cities2[0]);
 			
 			Console.ReadLine();
 
