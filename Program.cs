@@ -9,22 +9,31 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
-			Dictionary<string, string> dictionary = new Dictionary<string, string>();
-			dictionary.Add("book", "kitap");
-			dictionary.Add("table", "tablo");
-			dictionary.Add("computer", "bilgisayar");
-			dictionary.Add("door", "kapı");
 
-			//Console.WriteLine(dictionary["door"]);
 
-			foreach (var item in dictionary)
+			try
 			{
-				Console.WriteLine(item.Value);
+				string[] students = new string[3]
+				{
+					"emine",
+					"onur",
+					"öznur"
+				};
+
+				students[3] = "ahmet";
+
+
+			}
+			catch (IndexOutOfRangeException exception)
+			{
+				Console.WriteLine(exception.Message);
 			}
 
-			Console.WriteLine(dictionary.ContainsKey("glass"));
-			Console.WriteLine(dictionary.ContainsKey("book"));
+			catch (Exception exception)
+			{
+				Console.WriteLine(exception.Message);
 
+			}
 
 			Console.ReadLine();
 		}
