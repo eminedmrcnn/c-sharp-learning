@@ -9,78 +9,27 @@ namespace Döngüler14_10_19
 	{
 		static void Main(string[] args)
 		{
+			Dictionary<string, string> dictionary = new Dictionary<string, string>();
+			dictionary.Add("book", "kitap");
+			dictionary.Add("table", "tablo");
+			dictionary.Add("computer", "bilgisayar");
+			dictionary.Add("door", "kapı");
 
-			List<string> cities = new List<string>();
-			cities.Add("Ankara");
-			cities.Add("Adana");
+			//Console.WriteLine(dictionary["door"]);
 
-			Console.WriteLine(cities.Contains("Ankara"));  //Aramak istediğimizi contains içine yazarız..
-
-
-			foreach (var city in cities)
+			foreach (var item in dictionary)
 			{
-				Console.WriteLine(city);
+				Console.WriteLine(item.Value);
 			}
 
-			List<Customer> customers = new List<Customer>();
-			customers.Add(new Customer { Id = 1, FirstName = "emine" });
-			customers.Add(new Customer { Id = 2, FirstName = "Demircan" });
-
-			
-			var customer1 = new Customer
-			{
-				Id = 1, FirstName = "mahmut"
-			};
-
-			customers.Add(customer1);
-			customers.AddRange(new Customer[2]
-			{
-				new Customer
-				{
-					Id=4,
-					FirstName="Ali"
-				},
-				new Customer
-				{
-					Id=5,
-					FirstName="Ayşe"
-				},
-			});
+			Console.WriteLine(dictionary.ContainsKey("glass"));
+			Console.WriteLine(dictionary.ContainsKey("book"));
 
 
-			Console.WriteLine(customers.Contains(customer1));
-
-			var index = customers.IndexOf(customer1);
-			Console.WriteLine("index..{0}", index);
-
-			customers.Insert(0, customer1);
-
-
-			//customers.Clear();
-
-			
-
-			foreach (var customer in customers)
-			{
-				Console.WriteLine(customer.FirstName);
-			}
-			var count = customers.Count;
-			Console.WriteLine("Count..{0}", count);
-
-
-
-			
 			Console.ReadLine();
-
 		}
 	}
-
-	class Customer
-	{
-		public int Id { get; set; }
-		public string FirstName { get; set; }
-	}
-
-	
-	
 }
+	
+	
+
